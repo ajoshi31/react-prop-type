@@ -28,7 +28,7 @@ const NameWithHandle = ({ author }) => {
     </span>
   )
 }
-NameWithHandle.prototype = {
+NameWithHandle.propTypes = {
   author : PropTypes.shape({
     name: PropTypes.string.isRequired,
     handle: PropTypes.string.isRequired
@@ -123,7 +123,7 @@ let testTweet = {
   message: "To the unknown world we are here",
   gravatar: "0570d1db6d67cd64f0e41b4122fe0a70",
   author: {
-    handle: 12,
+    handle: "@elon",
     name: "Elon Musk",
   },
   likes: 23,
