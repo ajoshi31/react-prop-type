@@ -12,6 +12,9 @@ function Message({ message }) {
     </div>
   )
 }
+Message.propTypes = {
+  message : PropTypes.string
+}
 
 const NameWithHandle = ({ author }) => {
   return (
@@ -25,6 +28,13 @@ const NameWithHandle = ({ author }) => {
     </span>
   )
 }
+NameWithHandle.prototype = {
+  author : PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    handle: PropTypes.string.isRequired
+  }).isRequired
+}
+
 
 const Time = ({ time }) => {
   const timeString = moment(time).fromNow();
@@ -32,6 +42,10 @@ const Time = ({ time }) => {
   return (
     <span className="time">{timeString}</span>
   )
+}
+
+Time.propTypes = {
+  time: PropTypes.string
 }
 
 const ReplyButton = () => (
@@ -57,6 +71,9 @@ const RetweetButton = ({count}) => {
          {getRetweetCount(count)}
     </span>
   )
+}
+RetweetButton.propTypes = {
+  count : PropTypes.number
 }
 
 function LikeButton({count}){
@@ -106,11 +123,11 @@ let testTweet = {
   message: "To the unknown world we are here",
   gravatar: "0570d1db6d67cd64f0e41b4122fe0a70",
   author: {
-    handle: "elonmusk",
+    handle: 12,
     name: "Elon Musk",
   },
-  likes: "23s",
-  retweets: "45",
+  likes: 23,
+  retweets: 123,
   timestamp: "2021-01-03 18:05:09"
 }
 
